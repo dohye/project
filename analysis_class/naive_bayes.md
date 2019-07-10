@@ -1,8 +1,7 @@
-# Naive Bayes 
+## Naive Bayes 
+나이브 베이즈 알고리즘을 이용한 movie_reviews의 neg / pos 분류하기
 
-
-### < 나이브 베이즈 알고리즘을 이용한 movie_reviews의 neg / pos 분류하기 >
-
+<br/>
 
 - 총 2000개의 영화 리뷰들을 바탕으로, neg/pos 분류기를 생성함  
 
@@ -40,8 +39,9 @@
 
 <br/>
 <br/>
+<br/>
 
-# Naive Bayes Classifier 코드
+## Naive Bayes Classifier 코드
 
 
 ```python
@@ -52,6 +52,7 @@ from collections import Counter
 import numpy as np
 ```
 
+<br/>
 
 ### 데이터의 형태
 ```python
@@ -62,7 +63,7 @@ documents = [(list(movie_reviews.words(fileid)), category)
 
 ![naive](https://user-images.githubusercontent.com/37234822/60964731-0e597b80-a34f-11e9-8668-27db0ad1725e.png)
 
-
+<br/>
 
 ### nltk에 내장되어 있는 movie_review corpus 불러들이기
 ```python
@@ -80,6 +81,8 @@ pos_docs = [movie_reviews.raw(doc_id) for doc_id in pos_docs_id]
 ![naive3](https://user-images.githubusercontent.com/37234822/60964779-2f21d100-a34f-11e9-8231-988a0eacf568.png)
 
 
+<br/>
+
 ### split train/test
 
 ```python
@@ -89,6 +92,7 @@ neg_test = neg_docs[750:]
 pos_test = pos_docs[750:]
 ```
 
+<br/>
 
 ### 토크나이저 함수 정의
 
@@ -104,6 +108,7 @@ def tokenizer(document):
     return words
 ```
 
+<br/>
 
 ### negative/positive 문서별로 단어들 합치기
 
@@ -128,6 +133,7 @@ neg_words = flatten(neg)
 pos_words = flatten(pos)
 ```
 
+<br/>
 
 ### 단어의 확률 딕셔너리 만들기
 ```{python, comment=""}
@@ -146,17 +152,20 @@ for key in pos_most:
     pos_dict[key] = pos_most[key]/5000
 ```
 
+<br/>
 
 ### neg_dict/ pos_dict의 형태
 
-* neg_dict
+######neg_dict  
+
 ![naive4](https://user-images.githubusercontent.com/37234822/60964847-5aa4bb80-a34f-11e9-9c92-38d0d4f61c48.png)
 
 
-* pos_dict
+######pos_dict  
+
 ![naive6](https://user-images.githubusercontent.com/37234822/60964848-5aa4bb80-a34f-11e9-8129-245aa0426d7a.png)
 
-
+<br/>
 
 ### naive bayes classifier 함수 정의
 ```python
