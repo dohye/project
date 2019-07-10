@@ -1,78 +1,24 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 ## 다변량 정규분포
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> - 차원 확률벡터 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{X}"> 가 평균이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mu"> 이고 공분산이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Sigma">인 다변량 정규분포를 따를 때, 확률밀도함수 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(x)">는 아래와 같다.
 
 
+![10](https://user-images.githubusercontent.com/37234822/60959996-2bd51800-a344-11e9-88dc-39e91b58169f.JPG)
 
+### Example
 
+![11](https://user-images.githubusercontent.com/37234822/60959999-2c6dae80-a344-11e9-8766-68a463d1f559.JPG)
 
-$\\$ 
-
-> $p$-차원 확률벡터 $\mathbf{X}$가 평균이 $\mu$이고 공분산이 $\Sigma$인 다변량 정규분포를 따를 때, 확률밀도함수$f(x)$는 아래와 같다.
-$\\$  
-$\\$  
-$\mathbf{X} \sim \mathrm{N_p}(\mu, \Sigma)$  
-$\\$   
-  
-$f(x)=(2\pi)^{-p/2}\left|\Sigma\right|^{-1}{exp\left(-{(x-\mu)^t\Sigma^{-1}(x-\mu) \over 2}\right)}$  
-
-$\\$  
-$\\$
-$\\$
 
 ----------------------------
 
-$\\$
-
-#### Example. ####
-
-
-$\\$    
-$\\$  
-$\mu = \begin{pmatrix} 1 \\ 2 \end{pmatrix},\quad \Sigma =	\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$  
-
-$\\$  
-$\rho = {\sigma_{12}\over\sqrt{\sigma_{11}\sigma_{22}}} = 1/2 ,\quad \left\vert \Sigma \right\vert = 3 ,\quad \Sigma^{-1} = \begin{pmatrix} 2\over3 & -{1\over3} \\ -{1\over3} & 2\over3 \end{pmatrix}$ 일 때,
-  
-$\\$  
-$\\$  
-$(x-\mu)^t\Sigma^{-1}(x-\mu) = -\left\{ (x_2 -1)^2 + (x_1-1)(x_2-2)+(x_2-2)^2 \right\}$  
-
-$\\$  
-$(2\pi)^{-p/2}*\left\vert \Sigma \right\vert^{-1/2} = {1\over2\pi}*{1\over\sqrt{3}}$  
-
-$\\$  
-$\therefore  f(x)={1\over2 \pi\sqrt{3}}exp{\left((x_2 -1)^2 + (x_1-1)(x_2-2)+(x_2-2)^2 \over2\right)}$  
-  
-
-$\\$  
-$\\$ 
-$\\$ 
-$\\$ 
-
-----------------------------
-
-$\\$ 
+<br/>
 
 ### Multivariate normal distribution in python ###
 
-
-```{r setup, include=FALSE}
-library(knitr)
-library(reticulate)
-knitr::knit_engines$set(python=reticulate::eng_python)
-Sys.setlocale('LC_ALL','C')
-```
-
-```{python, include=FALSE}
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Anaconda3/Library/plugins/platforms'
-```
-
 >**Contour Plot**
-$\\$ 
+
 ```{python}
 import numpy as np
 from scipy import stats
@@ -95,10 +41,6 @@ plt.contourf(X, Y, rv.pdf(np.dstack([X,Y]))) # contourf : 3차원 자료 시각�
 plt.show()
   
 ```
-
-$\\$ 
-$\\$ 
-$\\$ 
 
 ----------------------------
 
