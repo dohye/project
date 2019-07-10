@@ -220,3 +220,59 @@ print(pos_acc)
 # positive accuracy : 0.944
 ```
 
+<br/>
+
+근데 여기서, negative인데 positive로 분류할 확률이 높다. 따라서 이 loss를 줄이기 위해 함수를 재정의 하여 보았다.
+
+### naive bayes classifier 함수 재정의
+```python
+def nb_classifier(test, label):
+    
+    anss = list()
+    lr = list()
+    for sent in test:
+        
+        lrt = 0
+        
+        sent = tokenizer(sent)
+        
+        for i in range(len(sent)):  
+         
+            lrt += np.log((pos_dict.get(sent[i],1/5000)) / (neg_dict.get(sent[i],1/5000)))
+        
+        lr.append(lrt)
+        if lrt > np.exp(3.32):
+            ans = "positive"
+        if lrt < np.exp(3.32):   # negative인데 positive로 분류할 loss를 줄이기 위한 가중치 조정
+            ans = "negative"
+        if lrt == np.exp(3.32):
+            ans = "same"
+            
+        anss.append(ans)
+    
+    anss = flatten(anss)
+    ans_freq = Counter(anss)
+    
+    if label == "positive":
+        accuracy = ans_freq["positive"]/len(test)
+    elif label == "negative":
+        accuracy = ans_freq["negative"]/len(test)  
+        
+    return lr, anss, accuracy
+```
+
+
+### 결과
+```python
+_, neg_res, neg_acc = nb_classifier(neg_test, label="negative")
+_, pos_res, pos_acc = nb_classifier(pos_test, label="positive")
+```
+
+```python
+print(neg_acc)
+# negative accuracy : 0.816
+print(pos_acc)
+# positive accuracy : 0.74
+```
+
+accuracy가 조정된 것을 확인할 수 있다.
