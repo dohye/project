@@ -19,11 +19,11 @@
 
 <br/>
 
-* <img src="https://latex.codecogs.com/svg.latex?P(pos|words)">와 <img src="https://latex.codecogs.com/svg.latex?P(neg|words)">를 비교해 더 큰쪽으로 분류한다.  
+* <img src="https://latex.codecogs.com/svg.latex?P(pos|words)"> 와 <img src="https://latex.codecogs.com/svg.latex?P(neg|words)"> 를 비교해 더 큰쪽으로 분류한다.  
 
-* 여기서 <img src="https://latex.codecogs.com/svg.latex?P(pos)=1000/2000=1/2">, <img src="https://latex.codecogs.com/svg.latex?P(neg)=1000/2000=1/2"> 이고  
+* 여기서 <img src="https://latex.codecogs.com/svg.latex?P(pos)=1000/2000=1/2">, <img src="https://latex.codecogs.com/svg.latex?P(neg)=1000/2000=1/2">  이고  
 
-* <img src="https://latex.codecogs.com/svg.latex?P(words)">는 대소 비교 시 생략가능 하므로 결과적으로 <img src="https://latex.codecogs.com/svg.latex?P(words|pos)">와 <img src="https://latex.codecogs.com/svg.latex?(words|neg)">를 비교하였다.    
+* <img src="https://latex.codecogs.com/svg.latex?P(words)"> 는 대소 비교 시 생략가능 하므로, 결과적으로 <img src="https://latex.codecogs.com/svg.latex?P(words|pos)">와 <img src="https://latex.codecogs.com/svg.latex?(words|neg)">를 비교함    
 
 <br/>
 
@@ -74,10 +74,10 @@ neg_docs = [movie_reviews.raw(doc_id) for doc_id in neg_docs_id]
 pos_docs = [movie_reviews.raw(doc_id) for doc_id in pos_docs_id]
 ```
 
-###### neg_docs
+##### neg_docs
 ![naive2](https://user-images.githubusercontent.com/37234822/60964778-2e893a80-a34f-11e9-932b-22e97fa36686.png)
 
-###### pos_docs
+##### pos_docs
 ![naive3](https://user-images.githubusercontent.com/37234822/60964779-2f21d100-a34f-11e9-8231-988a0eacf568.png)
 
 
@@ -136,13 +136,16 @@ pos_words = flatten(pos)
 <br/>
 
 ### 단어의 확률 딕셔너리 만들기
+
 ```{python, comment=""}
 ## 단어의 빈도수 
 neg_count = Counter(neg_words)
-pos_count = Counter(pos_words)
+pos_count = Counter(pos_words)  
+
 ## 제일 많이 등장한 5000개의 단어 딕셔너리
 neg_most = dict(neg_count.most_common(5000))
-pos_most = dict(pos_count.most_common(5000))
+pos_most = dict(pos_count.most_common(5000))  
+
 ## 단어별로 문서에 등장하는 확률 딕셔너리
 neg_dict = dict()
 for key in neg_most:
@@ -156,12 +159,12 @@ for key in pos_most:
 
 ### neg_dict/ pos_dict의 형태
 
-######neg_dict  
+##### neg_dict  
 
 ![naive4](https://user-images.githubusercontent.com/37234822/60964847-5aa4bb80-a34f-11e9-9c92-38d0d4f61c48.png)
 
 
-######pos_dict  
+##### pos_dict  
 
 ![naive6](https://user-images.githubusercontent.com/37234822/60964848-5aa4bb80-a34f-11e9-8129-245aa0426d7a.png)
 
