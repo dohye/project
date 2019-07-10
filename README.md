@@ -10,9 +10,7 @@
 - git commit -m "first commit"
 - git remote add origin https://github.com/dohye/project.git (내 레지스트리 주소)
 - git push -u origin master
-
-
-- 위에 했는데 오류나면,
+6. 위에 했는데 오류나면,
 - git pull --rebase origin master
 - git push origin master
 
