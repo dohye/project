@@ -39,6 +39,8 @@ plt.contourf(X, Y, rv.pdf(np.dstack([X,Y]))) # contourf : 3차원 자료 시각�
 plt.show()
   
 ```
+![contour plot](https://user-images.githubusercontent.com/37234822/60961923-1bbf3780-a348-11e9-8fb1-9260078fb49d.png)
+
 
 ----------------------------
 
@@ -68,3 +70,5 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 plt.show()
 ```
+
+![3dplot](https://user-images.githubusercontent.com/37234822/60961921-1b26a100-a348-11e9-8a94-f1393ad340a8.png)
