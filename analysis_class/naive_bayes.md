@@ -221,8 +221,9 @@ print(pos_acc)
 ```
 
 <br/>
+<br/>
 
-근데 여기서, negative인데 positive로 분류할 확률이 높다. 따라서 이 loss를 줄이기 위해 함수를 재정의 하여 보았다.
+그런데 여기서, negative인데 positive로 분류할 확률이 높다. 따라서 이 loss를 줄이기 위해 가중치를 조정해 보았다.
 
 ### naive bayes classifier 함수 재정의
 ```python
