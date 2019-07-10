@@ -1,6 +1,6 @@
 
 ## SGD regressor 
-- beta 직접추정 / SGD class 생성 / sklearn 모델 사용 한것 비교해보기
+- beta 직접추정 / SGD class 생성 / sklearn 모델을 사용하여 모수 추정 및 예측을 실행해 본 후, 결과 비교
 
 <br/>
 <br/>
