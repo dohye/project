@@ -14,6 +14,10 @@
 - git pull --rebase origin master
 - git push origin master
 
+
+<br\>
+<br\>
+
 #### git에 파일 올리기 
 
 - cmd 에서
