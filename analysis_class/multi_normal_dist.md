@@ -13,7 +13,7 @@
 
 <br/>
 
-### Multivariate normal distribution in python
+### multivariate normal distribution in python
 
 >**Contour Plot**
 
@@ -42,8 +42,9 @@ plt.show()
 ![contour plot](https://user-images.githubusercontent.com/37234822/60961923-1bbf3780-a348-11e9-8fb1-9260078fb49d.png)
 
 
-----------------------------
-
+<br/>
+<br/>
+<br/>
 
 >**3D Surface Plot**
 ```{python}
