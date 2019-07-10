@@ -1,1 +1,130 @@
-multi_normal_dist.md
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+## 다변량 정규분포
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> - 차원 확률벡터 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{X}"> 가 평균이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mu"> 이고 공분산이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Sigma">인 다변량 정규분포를 따를 때, 확률밀도함수 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(x)">는 아래와 같다.
+
+
+
+
+
+$\\$ 
+
+> $p$-차원 확률벡터 $\mathbf{X}$가 평균이 $\mu$이고 공분산이 $\Sigma$인 다변량 정규분포를 따를 때, 확률밀도함수$f(x)$는 아래와 같다.
+$\\$  
+$\\$  
+$\mathbf{X} \sim \mathrm{N_p}(\mu, \Sigma)$  
+$\\$   
+  
+$f(x)=(2\pi)^{-p/2}\left|\Sigma\right|^{-1}{exp\left(-{(x-\mu)^t\Sigma^{-1}(x-\mu) \over 2}\right)}$  
+
+$\\$  
+$\\$
+$\\$
+
+----------------------------
+
+$\\$
+
+#### Example. ####
+
+
+$\\$    
+$\\$  
+$\mu = \begin{pmatrix} 1 \\ 2 \end{pmatrix},\quad \Sigma =	\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$  
+
+$\\$  
+$\rho = {\sigma_{12}\over\sqrt{\sigma_{11}\sigma_{22}}} = 1/2 ,\quad \left\vert \Sigma \right\vert = 3 ,\quad \Sigma^{-1} = \begin{pmatrix} 2\over3 & -{1\over3} \\ -{1\over3} & 2\over3 \end{pmatrix}$ 일 때,
+  
+$\\$  
+$\\$  
+$(x-\mu)^t\Sigma^{-1}(x-\mu) = -\left\{ (x_2 -1)^2 + (x_1-1)(x_2-2)+(x_2-2)^2 \right\}$  
+
+$\\$  
+$(2\pi)^{-p/2}*\left\vert \Sigma \right\vert^{-1/2} = {1\over2\pi}*{1\over\sqrt{3}}$  
+
+$\\$  
+$\therefore  f(x)={1\over2 \pi\sqrt{3}}exp{\left((x_2 -1)^2 + (x_1-1)(x_2-2)+(x_2-2)^2 \over2\right)}$  
+  
+
+$\\$  
+$\\$ 
+$\\$ 
+$\\$ 
+
+----------------------------
+
+$\\$ 
+
+### Multivariate normal distribution in python ###
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(reticulate)
+knitr::knit_engines$set(python=reticulate::eng_python)
+Sys.setlocale('LC_ALL','C')
+```
+
+```{python, include=FALSE}
+import os
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Anaconda3/Library/plugins/platforms'
+```
+
+>**Contour Plot**
+$\\$ 
+```{python}
+import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+  
+mu = [1, 2]
+cov = [[2, 1],[1, 2]]
+rv = stats.multivariate_normal(mu, cov) # 다변량 정규분포를 따르는 난수 생성
+  
+# Create grid
+x = np.linspace(-2, 4, 100) # -2부터 4를 100개의 구간으로 나누기
+y = np.linspace(-1, 5, 100) # x.shape : (100,) / y.shape : (100,)
+X, Y = np.meshgrid(x,y) # X.shape : (100, 100) / Y.shape : (100, 100)
+  
+# Make a contour plot  
+plt.grid(False) # grid 제거
+plt.contourf(X, Y, rv.pdf(np.dstack([X,Y]))) # contourf : 3차원 자료 시각화(color)
+# np.dstack : 제3의 축(깊이) 방향으로 배열을 합친다. -> 차원 추가 
+# np.dstack([X,Y]).shape : (100, 100, 2)
+plt.show()
+  
+```
+
+$\\$ 
+$\\$ 
+$\\$ 
+
+----------------------------
+
+
+>**3D Surface Plot**
+```{python}
+import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+  
+mu = [1, 2]
+cov = [[2, 1],[1, 2]]
+rv = stats.multivariate_normal(mu,cov)
+  
+# Create grid 
+x = np.linspace(-2,4,500)
+y = np.linspace(-1,5,500) # x.shape : (500,) / y.shape : (500,)
+X, Y = np.meshgrid(x,y) # X.shape : (500, 500) / Y.shape : (500, 500)
+  
+# Make a surface plot
+fig = plt.figure()
+ax = fig.gca(projection='3d') # 좌표를 3d로 지정
+ax.plot_surface(X, Y, rv.pdf(np.dstack([X, Y])),cmap='viridis',linewidth=0) #surface flot
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+plt.show()
+```
