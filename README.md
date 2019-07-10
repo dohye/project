@@ -2,7 +2,7 @@
 - git init
 - git add README.md
 - git commit -m "first commit"
-- git remote add origin https://github.com/dohye/study.git
+- git remote add origin https://github.com/dohye/project.git
 - git push -u origin master
 
 #### git에 파일 올리기 
@@ -12,7 +12,7 @@
 - git init
 - git add .
 - git commit -m "adding files" # add 된 file 명 볼 수 있음 , ""안에 들어가는 말은 내가 남기고자 하는 메세지, 코드의 변경사항, 기능 추가 등 이런 내용을 짧게 작성
-- git remote add origin https://github.com/dohye/study.git
+- git remote add origin https://github.com/dohye/project.git
 - git push origin master
 
 #### push 오류나서 pull 해준 후 다시 push
@@ -35,7 +35,7 @@
 - git reset 파일이름
 - git add 파일이름
 - git commit -m "adding files" # add 된 file 명 볼 수 있음
-- git remote add origin https://github.com/dohye/study.git
+- git remote add origin https://github.com/dohye/project.git
 - git push origin master
 
 #### push 강제로 하는 방법
