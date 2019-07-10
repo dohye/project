@@ -4,18 +4,16 @@
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> - 차원 확률벡터 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{X}"> 가 평균이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mu"> 이고 공분산이 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Sigma">인 다변량 정규분포를 따를 때, 확률밀도함수 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(x)">는 아래와 같다.
 
 
-![10](https://user-images.githubusercontent.com/37234822/60959996-2bd51800-a344-11e9-88dc-39e91b58169f.JPG)
+![12](https://user-images.githubusercontent.com/37234822/60961741-cdaa3400-a347-11e9-90f1-3f684402b36d.JPG)
 
 ### Example
 
-![11](https://user-images.githubusercontent.com/37234822/60959999-2c6dae80-a344-11e9-8766-68a463d1f559.JPG)
-
-
+![13](https://user-images.githubusercontent.com/37234822/60961744-cdaa3400-a347-11e9-9762-98043e165f72.JPG)
 ----------------------------
 
 <br/>
 
-### Multivariate normal distribution in python ###
+### Multivariate normal distribution in python
 
 >**Contour Plot**
 
