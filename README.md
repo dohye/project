@@ -8,7 +8,7 @@
 #### git에 파일 올리기 
 
 - cmd 에서
-- cd C:\Users\dohye\Desktop\git
+- cd C:\Users\dohye\Desktop\github\project
 - git init
 - git add .
 - git commit -m "adding files" # add 된 file 명 볼 수 있음 , ""안에 들어가는 말은 내가 남기고자 하는 메세지, 코드의 변경사항, 기능 추가 등 이런 내용을 짧게 작성
@@ -29,7 +29,7 @@
 #### github error : 'commit' is not possible because you have unmerged files.
 이건 내가 git폴더에서 가지고 있는 파일이랑 git 페이지에서 가지고 있는 파일이랑 달라서 나타나는 오류. merge가 안됬다. 즉, merge를 해야함
 
-- cd C:\Users\dohye\Desktop\git
+- cd C:\Users\dohye\Desktop\github\project
 - git init
 - git status # 에러난 파일 확인
 - git reset 파일이름
