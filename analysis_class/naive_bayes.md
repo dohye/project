@@ -1,229 +1,212 @@
+# Naive Bayes 
 
-## SGD regressor 
-- beta 직접추정 / SGD class 생성 / sklearn 모델을 사용하여 모수 추정 및 예측을 실행해 본 후, 결과 비교
+
+### < 나이브 베이즈 알고리즘을 이용한 movie_reviews의 neg / pos 분류하기 >
+
+
+- 총 2000개의 영화 리뷰들을 바탕으로, neg/pos 분류기를 생성함  
+
+- movie_reviews data : python 내장 corpus로 , 각 리뷰는 neg / pos 로 분류되어 있음  
+
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;N_{pos}=1000">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;N_{neg}=1000">
+
+<br/>
+
+* 리뷰(에 있는 단어가) positive일 확률 : 
+<img src="https://latex.codecogs.com/svg.latex?P(pos|words)=P(words|pos)"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(pos)/P(words)">
+
+* 리뷰(에 있는 단어가) negative일 확률 : 
+<img src="https://latex.codecogs.com/svg.latex?P(neg|words)=P(words|neg)"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(neg)/P(words)">
+
+<br/>
+
+* <img src="https://latex.codecogs.com/svg.latex?P(pos|words)">와 <img src="https://latex.codecogs.com/svg.latex?P(neg|words)">를 비교해 더 큰쪽으로 분류한다.  
+
+* 여기서 <img src="https://latex.codecogs.com/svg.latex?P(pos)=1000/2000=1/2">, <img src="https://latex.codecogs.com/svg.latex?P(neg)=1000/2000=1/2"> 이고  
+
+* <img src="https://latex.codecogs.com/svg.latex?P(words)">는 대소 비교 시 생략가능 하므로 결과적으로 <img src="https://latex.codecogs.com/svg.latex?P(words|pos)">와 <img src="https://latex.codecogs.com/svg.latex?(words|neg)">를 비교하였다.    
+
+<br/>
+
+예를 들어,  
+
+<img src="https://latex.codecogs.com/svg.latex?P(w_1,w_2,\cdot\cdot\cdot,w_n|pos)=P(w_1|pos)"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(w_2|pos)">
+<img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?\cdot\cdot\cdot"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(w_n|pos)">
+
+<img src="https://latex.codecogs.com/svg.latex?P(w_1,w_2,\cdot\cdot\cdot,w_n|neg)=P(w_1|neg)"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(w_2|neg)">
+<img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?\cdot\cdot\cdot"> <img src="https://latex.codecogs.com/svg.latex?\times"> <img src="https://latex.codecogs.com/svg.latex?P(w_n|neg)">
+
+(각 단어는 독립임을 가정함)
 
 <br/>
 <br/>
 
-### 데이터 불러오기
-중앙 플로리다 지역에서 연구를 위하여 포획된 15마리의 악어에서 2종류의 데이터 각각의 **체중**과 **주둥이 길이**를 구한 것  
-  
-단위는 체중(`pound`,y) , 주둥이의 길이(`inch`,X)
+# Naive Bayes Classifier 코드
 
-
-<br/>
 
 ```python
+from nltk import regexp_tokenize
+from nltk.corpus import movie_reviews, stopwords
+from nltk.stem.wordnet import WordNetLemmatizer
+from collections import Counter
 import numpy as np
-  
-X = np.array([3.87, 3.61, 4.33, 3.43, 3.81, 3.83, 3.46, 3.76, 3.50, 3.58, 4.19, 3.78, 3.71, 3.73, 3.78]).reshape(15,1)
-y = np.array([4.87, 3.93, 6.46, 3.33, 4.38, 4.70, 3.50, 4.50,3.58, 3.64, 5.90, 4.43, 4.38, 4.42, 4.25]).reshape(15,1)
 ```
 
-<br/>
 
-* scatter plot
+### 데이터의 형태
 ```python
-import matplotlib.pyplot as plt
-p = plt.scatter(X,y)
-plt.show()
+documents = [(list(movie_reviews.words(fileid)), category)
+             for category in movie_reviews.categories()
+             for fileid in movie_reviews.fileids(category)]
 ```
 
-![sgd2](https://user-images.githubusercontent.com/37234822/60962714-d865c880-a349-11e9-9640-d7c7b2aebe3c.png)
+![naive](https://user-images.githubusercontent.com/37234822/60964731-0e597b80-a34f-11e9-8668-27db0ad1725e.png)
 
 
-<br/>
-<br/>
-<br/>
 
-### 1. beta 직접 추정
-  
+### nltk에 내장되어 있는 movie_review corpus 불러들이기
 ```python
-# X를 계획행렬로 변환  
-one = np.ones((15,1))
-des_X = np.hstack([one,X])
-# des_X = np.array([[1.,3.87], [1.,3.61], [1., 4.33], [1.,3.43], [1.,3.81], [1.,3.83], [1.,3.46], [1.,3.76], [1.,3.50], [1.,3.58], [1.,4.19], [1.,3.78], [1.,3.71], [1.,3.73], [1.,3.78]])  
-  
-b = np.linalg.solve(np.matmul(des_X.T,des_X), np.matmul(des_X.T, y))
-  
-y_hat = np.matmul(des_X, b)
-loss_ = 0.5 *np.sum((y_hat - y)**2)
+file = movie_reviews.fileids()
+neg_docs_id = list(filter(lambda doc : doc.startswith("neg"), file))
+pos_docs_id = list(filter(lambda doc : doc.startswith("pos"), file))
+neg_docs = [movie_reviews.raw(doc_id) for doc_id in neg_docs_id]
+pos_docs = [movie_reviews.raw(doc_id) for doc_id in pos_docs_id]
 ```
+
+###### neg_docs
+![naive2](https://user-images.githubusercontent.com/37234822/60964778-2e893a80-a34f-11e9-932b-22e97fa36686.png)
+
+###### pos_docs
+![naive3](https://user-images.githubusercontent.com/37234822/60964779-2f21d100-a34f-11e9-8231-988a0eacf568.png)
+
+
+### split train/test
 
 ```python
-print("pred :", np.round(y_hat,4))
-print("coef :", "[b : ", b[0],", W : ", b[1], "]")
-print("loss : ", np.round(loss_,4))
+neg_train = neg_docs[:750]
+pos_train = pos_docs[:750]
+neg_test = neg_docs[750:]
+pos_test = pos_docs[750:]
 ```
 
-```
-pred : [4.8023], [3.9102], [6.3806], [3.2926], [4.5964], [4.665], [3.3955], [4.4249], [3.5328], [3.8073], [5.9002], [4.4935], [4.2533], [4.3219], [4.4935]  
-coef : [b :  [-8.4760671] , W :  [3.43109822] ]  
-loss :  0.0982
-```
-  
-<br/>
-<br/>
-<br/>
-  
-### 2. SGD class
-* 수치미분 함수 정의
-```{python}
-def numerical_gradient(f, x):
-    h = 1e-4 # 0.0001
-    grad = np.zeros_like(x)
-    
-    for idx in range(x.size):
-        tmp_val = x[idx]
-        x[idx] = float(tmp_val) + h
-        fxh1 = f(x) # f(x+h)
-        
-        x[idx] = tmp_val - h 
-        fxh2 = f(x) # f(x-h)
-        grad[idx] = (fxh1 - fxh2) / (2*h)
-        
-        x[idx] = tmp_val 
-        
-    return grad
-```
-<br/>
 
-* 클래스 정의
+### 토크나이저 함수 정의
+
 ```python
-        
-class linear_with_sgd:
+def tokenizer(document):
+    pattern = r"""[a-zA-Z]+"""
+    stop_words = set(stopwords.words('english'))
+    lowered_document = document.lower()
+    regularized_token = regexp_tokenize(lowered_document, pattern)
+    words = [word for word in regularized_token if word not in stop_words]
+    lemmatizer = WordNetLemmatizer()
+    words = [lemmatizer.lemmatize(w) for w in words]
+    return words
+```
+
+
+### negative/positive 문서별로 단어들 합치기
+
+```python
+neg = list()
+for i in range(len(neg_train)):
+    neg.append(tokenizer(neg_train[i]))
     
-    def __init__(self, input_size, output_size):
-        
-        self.params = dict()
-        self.params['W'] = np.zeros((input_size, output_size)) #random.randn(input_size, output_size)
-        self.params['b'] = np.zeros(output_size) 
-  
-    def set_data(self, x, t):  
-  
-        self.X = x
-        self.y = t        
-        
-    def predict(self, x):
-        
-        W, b = self.params['W'], self.params['b']
-        y = np.matmul(x,W) + b
-        return y
-        
-    def loss(self, x, t):
-        
-        y = self.predict(x)
-        loss = 0.5 * np.sum((y - t)**2)
-        
-        return loss
+pos = list()
+for i in range(len(pos_train)):
+    pos.append(tokenizer(pos_train[i]))
+def flatten(words):
+    result  = []
+    for i in words:
+        if(isinstance(i, list)):
+            result += flatten(i)
+        else:
+            result.append(i)
+    return result
     
-    def gradient(self, x, t):
-        loss_W = lambda W: self.loss(x,t)
-        
-        grads=dict()
-        grads['W'] = numerical_gradient(loss_W, self.params['W'])
-        grads['b'] = numerical_gradient(loss_W, self.params['b'])
-        
-        return grads
-  
-    def get_coef(self):
-        
-        return self.params
+neg_words = flatten(neg)
+pos_words = flatten(pos)
+```
+
+
+### 단어의 확률 딕셔너리 만들기
+```{python, comment=""}
+## 단어의 빈도수 
+neg_count = Counter(neg_words)
+pos_count = Counter(pos_words)
+## 제일 많이 등장한 5000개의 단어 딕셔너리
+neg_most = dict(neg_count.most_common(5000))
+pos_most = dict(pos_count.most_common(5000))
+## 단어별로 문서에 등장하는 확률 딕셔너리
+neg_dict = dict()
+for key in neg_most:
+    neg_dict[key] = neg_most[key]/5000
+pos_dict = dict()
+for key in pos_most:
+    pos_dict[key] = pos_most[key]/5000
+```
+
+
+### neg_dict/ pos_dict의 형태
+
+* neg_dict
+![naive4](https://user-images.githubusercontent.com/37234822/60964847-5aa4bb80-a34f-11e9-9c92-38d0d4f61c48.png)
+
+
+* pos_dict
+![naive6](https://user-images.githubusercontent.com/37234822/60964848-5aa4bb80-a34f-11e9-8129-245aa0426d7a.png)
+
+
+
+### naive bayes classifier 함수 정의
+```python
+def nb_classifier(test, label):
     
-    def training(self, learning_rate, ABSTOL):
-        
-        old_cost = 1E+32
-        save_cost = list()
-        
-        for epoch in range(120000):
+    anss = list()
     
-            grad = self.gradient(self.X, self.y)
+    for sent in test:
+        
+        sent = tokenizer(sent)
+        pos_prob = 1
+        neg_prob = 1
+        
+        for i in range(len(sent)):  
+         
+            pos_prob += np.log(pos_dict.get(sent[i],1/5000))        
+            neg_prob += np.log(neg_dict.get(sent[i],1/5000))
+            sub_prob = pos_prob - neg_prob
+    
+        if sub_prob > 0:
+            ans = "positive"
+        if sub_prob < 0:
+            ans = "negative"
+        if sub_prob == 0:
+            ans = "same"
             
-            for key in ('W', 'b'):
-                self.params[key] -= learning_rate * grad[key]
-            cost = self.loss(self.X, self.y)
-            save_cost.append(cost)
-             
-            if np.abs(old_cost - cost) < ABSTOL * old_cost:
-                print("epoch :", epoch)
-                break
-            
-            old_cost = cost
-        return save_cost
+        anss.append(ans)
+    
+    anss = flatten(anss)
+    ans_freq = Counter(anss)
+    
+    if label == "positive":
+        accuracy = ans_freq["positive"]/len(test)
+    elif label == "negative":
+        accuracy = ans_freq["negative"]/len(test)
+        
+    return anss, accuracy
 ```
 
 
-##### 실행
-
-  * learning_rate=`0.001`, epoch=`120,000`
-
+### 결과
 ```python
-SGD = linear_with_sgd(1,1)
-SGD.set_data(X, y)
-SGD.training(0.001, 1E-8)
+neg_res, neg_acc = nb_classifier(neg_test, label="negative")
+pos_res, pos_acc = nb_classifier(pos_test, label="positive")
 ```
 
 ```python
-print("pred :", np.round(SGD.predict(X), 4))
-print("coef :", SGD.get_coef())
-print("loss :", SGD.loss(X, y))
+print(neg_acc)
+# negative accuracy : 0.496
+print(pos_acc)
+# positive accuracy : 0.944
 ```
 
-```
-pred : [4.8005], [3.9127], [6.3711], [3.2981], [4.5956], [4.6639], [3.4005], [4.4249], [3.5371], [3.8103], [5.8931], [4.4932], [4.2542], [4.3225], [4.4932]
-coef : {'b': array([-8.41352161]), 'W': array([[3.41446973]])}
-loss : 0.09836405011617769
-```
-
-<br/>
-<br/>
-<br/>
-
-### 3. sklearn_SGDRegressor 사용
-  * learning_rate=`0.001`, epoch=`300,000`
-
-```python
-from sklearn import linear_model
-  
-clf = linear_model.SGDRegressor(alpha=0.001,n_iter=300000)
-clf.fit(X,y)
-clf.get_params(deep=True)
-  
-pred = clf.predict(X).reshape(15,1)
-sk_loss = 0.5 *np.sum((pred - y)**2)
-```
-
-
-```python
-print("pred :", np.round(pred,4))
-print("W :", clf.coef_, ", b : ", clf.intercept_)
-print("loss :", sk_loss)
-```
-
-```
-pred : [4.7945], [3.9217], [6.3386], [3.3175], [4.5931], [4.6602], [3.4182], [4.4253], [3.5525], [3.821], [5.8687], [4.4924], [4.2574], [4.3245], [4.4924]
-W : [3.35683203] , b :  [-8.19643677]
-loss : 0.10060543404345937
-
-```
-
-<br/>
-<br/>
-<br/>
-
-
-### 4. 결과 비교
-
-
-y = [4.87, 3.93, 6.46, 3.33, 4.38, 4.70, 3.50, 4.50,3.58, 3.64, 5.90, 4.43, 4.38, 4.42, 4.25]
-
-
-
-|**-** |**beta** |**SGD class** |**sklearn** |
-|:--------:|:--------:|:--------:|:--------:|
-|**epoch** |**-** |**120,000**  |**300,000** |
-|**lr** |**-**  |**0.001** |**0.001**  |
-|**W** |**3.4311**  |**3.4266** |**3.3565**  |
-|**b** |**-8.4761** |**-8.4591** |**-8.1958** |
-|**pred** |**[4.80, 3.91, 6.38, 3.29, 4.60, 4.67,  3.40, 4.42, 3.53, 3.81,  5.90, 4.49, 4.25, 4.32, 4.49]** |**[4.80, 3.91 6.38, 3.29, 4.60, 4.66, 3.40, 4.42, 3.53,  3.81, 5.90, 4.49, 4.25, 4.32, 4.49]** |**[4.80,  3.92, 6.34,  3.32, 4.59, 4.66, 3.42, 4.42, 3.55, 3.82, 5.87, 4.49, 4.26,  4.32, 4.49]**  |
-|**loss** |**0.0982** |**0.0983** |**0.1006** |
