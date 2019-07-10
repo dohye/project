@@ -74,10 +74,10 @@ neg_docs = [movie_reviews.raw(doc_id) for doc_id in neg_docs_id]
 pos_docs = [movie_reviews.raw(doc_id) for doc_id in pos_docs_id]
 ```
 
-##### neg_docs
+* neg_docs  
 ![naive2](https://user-images.githubusercontent.com/37234822/60964778-2e893a80-a34f-11e9-932b-22e97fa36686.png)
 
-##### pos_docs
+* pos_docs  
 ![naive3](https://user-images.githubusercontent.com/37234822/60964779-2f21d100-a34f-11e9-8231-988a0eacf568.png)
 
 
@@ -159,13 +159,11 @@ for key in pos_most:
 
 ### neg_dict/ pos_dict의 형태
 
-##### neg_dict  
-
+* neg_dict  
 ![naive4](https://user-images.githubusercontent.com/37234822/60964847-5aa4bb80-a34f-11e9-9c92-38d0d4f61c48.png)
 
 
-##### pos_dict  
-
+* pos_dict  
 ![naive6](https://user-images.githubusercontent.com/37234822/60964848-5aa4bb80-a34f-11e9-8129-245aa0426d7a.png)
 
 <br/>
