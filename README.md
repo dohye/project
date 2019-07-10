@@ -1,9 +1,20 @@
 #### github 시작할 때
+1. github ID 만들고 레지스트리 하나 생성하기
+2. 윈도우용 Git 다운받기 (https://git-scm.com/downloads)
+3. 원하는 폴더를 만든다 (여기가 work space)
+4. 폴더에 메모장 열어서 md파일 하나 만든다 (주로 README.md)
+5. cmd 들어가서
+- cd C:\Users\dohye\Desktop\github\project (3번에서 만든 폴더 경로)
 - git init
 - git add README.md
 - git commit -m "first commit"
-- git remote add origin https://github.com/dohye/project.git
+- git remote add origin https://github.com/dohye/project.git (내 레지스트리 주소)
 - git push -u origin master
+
+
+- 위에 했는데 오류나면,
+- git pull --rebase origin master
+- git push origin master
 
 #### git에 파일 올리기 
 
