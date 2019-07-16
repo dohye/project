@@ -17,7 +17,7 @@
 
 ![nr1](https://user-images.githubusercontent.com/37234822/61104592-e5053080-a4b1-11e9-962f-2d548db1a763.JPG)
 
-
+<br/>
 
 ### 1. <img src="https://latex.codecogs.com/svg.latex?f(x)=0"> 의 해를 구하기
 
