@@ -57,3 +57,25 @@ theoretical bases were used to analyze the problem?
 Google Scholar나 CiteSeer같은 학문용 검색 엔진을 쓰고, 알맞은 키워드를 써서 최근에 많이 인용된 3-5개의 해당 영역의 논문을 찾자.
 각 연구에서 논문 읽기 1단계를 적용해서, 해당 연구의 맥락을 잡는다. 그러고 나서 관련된 연구 부문을 읽어본다.
 
+<br/>
+<br/>
+
+### 아래 내용 채워보기
+출처 : <http://gradschoolstory.net/terry/readingpapers/>
+
+<br/>
+
+- 나는 이런 문제를 풀거야 (abstract)
+:
+- 사실 이 문제는 이런 동기에서 연구가 시작된건데 (introduction)
+: 
+- 관련해서 이런저런 접근들이 있었지 (related works)
+: 
+- 난 이런 새로운 방식으로 접근해보려고 하는데 (method)
+: 
+- 정말 이게 잘 먹히는지 실험도 해봤어 (experiment)
+: 
+- 이를 통해 이런 사실도 알아냈지만 한계점도 있지 (discussion)
+: 
+- 마지막으로 요약 (conclusion)
+: 
