@@ -17,7 +17,7 @@
 
 >**Contour Plot**
 
-```{python}
+```python
 import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
@@ -47,7 +47,7 @@ plt.show()
 <br/>
 
 >**3D Surface Plot**
-```{python}
+```python
 import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
