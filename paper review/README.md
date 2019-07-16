@@ -80,8 +80,3 @@ Google Scholar나 CiteSeer같은 학문용 검색 엔진을 쓰고, 알맞은 �
 - 마지막으로 요약 (conclusion)
 : 
 
-
-
-```math
-SE = \frac{\sigma}{\sqrt{n}}
-```
