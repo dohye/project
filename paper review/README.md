@@ -1,27 +1,30 @@
 
-## ³í¹®ÀÐ´Â¹ý
+## ë…¼ë¬¸ì½ëŠ”ë²•
 
-¿ø¹® : http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf
-¹ø¿ª¹® : https://woongheelee.com/entry/%EB%85%BC%EB%AC%B8%EC%9D%84-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B0%A9%EB%B2%95
+ì›ë¬¸ : http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf  
 
-### 3´Ü°è Á¢±Ù¹ý
+ë²ˆì—­ë¬¸ : https://woongheelee.com/entry/%EB%85%BC%EB%AC%B8%EC%9D%84-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B0%A9%EB%B2%95
 
-### 1´Ü°è
-Ã¹¹øÂ° ´Ü°è´Â ºü¸£°Ô ÈÈ¾î¼­ ³í¹®À» ÆÄ¾ÇÇÏ´Â °Í. ´ÙÀ½ ´Ü°è·Î ÁøÇàÇÒÁö ¸»Áö¸¦ °áÁ¤
-1. Á¦¸ñ, abstract, introductionÀ» ÁÖÀÇÇØ¼­ ÀÐ´Â´Ù.
-2. °¢ ¼½¼ÇÀÇ Á¦¸ñÀ» È®ÀÎÇÑ´Ù. ³ª¸ÓÁö´Â ´Ù ¹«½ÃÇÑ´Ù
-3. (¸¸¾à¿¡ ÀÖ´Ù¸é) ¼öÇÐÀûÀÎ ºÎºÐÀ» ´ëÃæ ÀÐ¾î¼­ ÀÌ·ÐÀû ¹è°æÀÌ ¹«¾ùÀÎÁö »ý°¢ÇØº»´Ù.
-4. ConclusionÀ» ÀÐ´Â´Ù.
-5. Reference¸¦ Âß ÈÈ¾îº¸°í, ÀÌÀü¿¡ ÀÐ¾îº» °Ô ÀÖ³ª »ý°¢ÇØº»´Ù.
+### < 3ë‹¨ê³„ ì ‘ê·¼ë²• >
 
 <br/>
 
-Ã¹ ´Ü°è¸¦ °ÅÄ¡°í ´ÙÀ½ ´Ù¼¸°¡Áö C¿¡ ´ë´äÇÒ ¼ö ÀÖÀ» °ÍÀÌ´Ù.
-1. Category : ÀÌ ³í¹®Àº ¾î¶² Å¸ÀÔÀÎ°¡? ÃøÁ¤¿¡ °üÇÑ °Ç°¡? ±âÁ¸ ½Ã½ºÅÛ ºÐ¼®¿¡ °üÇÑ°Ç°¡? ¿¬±¸ ÇÁ·ÎÅäÅ¸ÀÔÀÎ°¡?
-2. Context : ÀÌ ¿¬±¸¿Í °ü·ÃµÈ ´Ù¸¥ ¿¬±¸´Â ¹»±î? ¾î¶² ÀÌ·ÐÀû ¹è°æÀÌ ¹®Á¦ ÇØ°á¿¡ ¾²¿´³ª?
-3. Correctness : ³í¹®ÀÇ °¡Á¤ÀÌ À¯È¿ÇÑ°¡?
-4. Contributions : ÀÌ ³í¹®ÀÇ ÁÖ¿ä °øÇåÀº ¹«¾ùÀÎ°¡?
-5. Clarity : Àß ½áÁ³³ª?
+### 1ë‹¨ê³„
+ì²«ë²ˆì§¸ ë‹¨ê³„ëŠ” ë¹ ë¥´ê²Œ í›‘ì–´ì„œ ë…¼ë¬¸ì„ íŒŒì•…í•˜ëŠ” ê²ƒ. ë‹¤ìŒ ë‹¨ê³„ë¡œ ì§„í–‰í• ì§€ ë§ì§€ë¥¼ ê²°ì •
+1. ì œëª©, abstract, introductionì„ ì£¼ì˜í•´ì„œ ì½ëŠ”ë‹¤.
+2. ê° ì„¹ì…˜ì˜ ì œëª©ì„ í™•ì¸í•œë‹¤. ë‚˜ë¨¸ì§€ëŠ” ë‹¤ ë¬´ì‹œí•œë‹¤
+3. (ë§Œì•½ì— ìžˆë‹¤ë©´) ìˆ˜í•™ì ì¸ ë¶€ë¶„ì„ ëŒ€ì¶© ì½ì–´ì„œ ì´ë¡ ì  ë°°ê²½ì´ ë¬´ì—‡ì¸ì§€ ìƒê°í•´ë³¸ë‹¤.
+4. Conclusionì„ ì½ëŠ”ë‹¤.
+5. Referenceë¥¼ ì­‰ í›‘ì–´ë³´ê³ , ì´ì „ì— ì½ì–´ë³¸ ê²Œ ìžˆë‚˜ ìƒê°í•´ë³¸ë‹¤.
+
+<br/>
+
+ì²« ë‹¨ê³„ë¥¼ ê±°ì¹˜ê³  ë‹¤ìŒ ë‹¤ì„¯ê°€ì§€ Cì— ëŒ€ë‹µí•  ìˆ˜ ìžˆì„ ê²ƒì´ë‹¤.
+1. Category : ì´ ë…¼ë¬¸ì€ ì–´ë–¤ íƒ€ìž…ì¸ê°€? ì¸¡ì •ì— ê´€í•œ ê±´ê°€? ê¸°ì¡´ ì‹œìŠ¤í…œ ë¶„ì„ì— ê´€í•œê±´ê°€? ì—°êµ¬ í”„ë¡œí† íƒ€ìž…ì¸ê°€?
+2. Context : ì´ ì—°êµ¬ì™€ ê´€ë ¨ëœ ë‹¤ë¥¸ ì—°êµ¬ëŠ” ë­˜ê¹Œ? ì–´ë–¤ ì´ë¡ ì  ë°°ê²½ì´ ë¬¸ì œ í•´ê²°ì— ì“°ì˜€ë‚˜?
+3. Correctness : ë…¼ë¬¸ì˜ ê°€ì •ì´ ìœ íš¨í•œê°€?
+4. Contributions : ì´ ë…¼ë¬¸ì˜ ì£¼ìš” ê³µí—Œì€ ë¬´ì—‡ì¸ê°€?
+5. Clarity : ìž˜ ì¨ì¡Œë‚˜?
 
 <br/>
 
@@ -30,23 +33,23 @@ description of a research prototype?
 2. Context: Which other papers is it related to? Which
 theoretical bases were used to analyze the problem?
 3. Correctness: Do the assumptions appear to be valid?
-4. Contributions: What are the paper¡¯s main contributions?
+4. Contributions: What are the paperâ€™s main contributions?
 5. Clarity: Is the paper well written?
 
 <br/>
 
-### 2´Ü°è
-µÎ ¹øÂ° ´Ü°è¿¡¼­, ³í¹®¿¡ ´õ¿í ÁýÁßÇØ¼­ ÀÐ¾î¶ó. ÇÏÁö¸¸ Áõ¸í°ú °°Àº ¼¼¼¼ÇÑ °ÍµéÀº ¹«½ÃÇØ¶ó.
-ÀÐ¾î°¡¸é¼­ ÇÙ½ÉÀ» ½á³»·Á°¡°Å³ª, ¿©¹é¿¡ ºñÆòÀ» ½áµÎ¸é µµ¿òÀÌ µÈ´Ù. ÀÌÇØ ¾È µÇ´Â ¿ë¾î¸¦ ½áµÎ°Å³ª, ÀúÀÚ¿¡°Ô Áú¹®ÇÏ°í ½ÍÀº°É ½á³ö¶ó
-1. ±×¸², ´ÙÀÌ¾î±×·¥, ±×¸®°í ´Ù¸¥ »ðÈ­µéÀ» ÁÖÀÇ±í°Ô »ìÆìº¸¾Æ¶ó. Æ¯È÷³ª ±×·¡ÇÁ¿¡ ½Å°æÀ» ½á¼­ º¸¾Æ¶ó. ±×·¡ÇÁÀÇ ÃàÀÌ ÀûÀýÈ÷ ¶óº§¸µ µÇ¾ú³ª? °á°ú¹°¿¡ ¿ÀÂ÷¸¦ ³ªÅ¸³»´Â ¹Ù°¡ Ç¥ÇöµÇ¾ú´ÂÁö, ±×·¡¼­ Åë°èÀûÀ¸·Î À¯ÀÇÇÑ°¡?
-2. Âü°í¹®Çå ¸ñ·Ï¿¡ ³ªÁß¿¡ ÀÐÀ»¸¸ÇÑ ³í¹®À» Ç¥½ÃÇØ¶ó
+### 2ë‹¨ê³„
+ë‘ ë²ˆì§¸ ë‹¨ê³„ì—ì„œ, ë…¼ë¬¸ì— ë”ìš± ì§‘ì¤‘í•´ì„œ ì½ì–´ë¼. í•˜ì§€ë§Œ ì¦ëª…ê³¼ ê°™ì€ ì„¸ì„¸í•œ ê²ƒë“¤ì€ ë¬´ì‹œí•´ë¼.
+ì½ì–´ê°€ë©´ì„œ í•µì‹¬ì„ ì¨ë‚´ë ¤ê°€ê±°ë‚˜, ì—¬ë°±ì— ë¹„í‰ì„ ì¨ë‘ë©´ ë„ì›€ì´ ëœë‹¤. ì´í•´ ì•ˆ ë˜ëŠ” ìš©ì–´ë¥¼ ì¨ë‘ê±°ë‚˜, ì €ìžì—ê²Œ ì§ˆë¬¸í•˜ê³  ì‹¶ì€ê±¸ ì¨ë†”ë¼
+1. ê·¸ë¦¼, ë‹¤ì´ì–´ê·¸ëž¨, ê·¸ë¦¬ê³  ë‹¤ë¥¸ ì‚½í™”ë“¤ì„ ì£¼ì˜ê¹Šê²Œ ì‚´íŽ´ë³´ì•„ë¼. íŠ¹ížˆë‚˜ ê·¸ëž˜í”„ì— ì‹ ê²½ì„ ì¨ì„œ ë³´ì•„ë¼. ê·¸ëž˜í”„ì˜ ì¶•ì´ ì ì ˆížˆ ë¼ë²¨ë§ ë˜ì—ˆë‚˜? ê²°ê³¼ë¬¼ì— ì˜¤ì°¨ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë°”ê°€ í‘œí˜„ë˜ì—ˆëŠ”ì§€, ê·¸ëž˜ì„œ í†µê³„ì ìœ¼ë¡œ ìœ ì˜í•œê°€?
+2. ì°¸ê³ ë¬¸í—Œ ëª©ë¡ì— ë‚˜ì¤‘ì— ì½ì„ë§Œí•œ ë…¼ë¬¸ì„ í‘œì‹œí•´ë¼
 
 <br/>
 
-### 3´Ü°è
-³í¹®À» ¿Ïº®ÇÏ°Ô ÀÌÇØÇÏ±â À§ÇØ ³í¹®À» °¡»óÀ¸·Î Àç ½ÇÇèÇØº¸´Â °ÍÀÌ´Ù. ÀÌ ´Ü°è°¡ Áö³ª¼­, ±â¾ïÀ» ÅëÇØ ³í¹®ÀÇ ±¸Á¶¸¦ ´Ù½Ã ÀÛ¼ºÇØº¼ ¼ö ÀÖ´Ù. °Å±â¿¡ ´õÇØ °­Á¡, ¾àÁ¡µµ ºÐ·ùÇØ³¾ ¼ö ÀÖÀ» °ÍÀÌ´Ù. Æ¯È÷, ½ÇÇè ¶Ç´Â ºÐ¼® ±â¼ú¿¡¼­ ÀáÀçÀû °¡Á¤ÀÌ³ª, ºüÁø °ü·Ã ¿¬±¸, ±×¸®°í ÀáÀçÀû ÀÌ½´µéÀ» Ã£¾Æ³¾ ¼ö ÀÖÀ» °ÍÀÌ´Ù. 
+### 3ë‹¨ê³„
+ë…¼ë¬¸ì„ ì™„ë²½í•˜ê²Œ ì´í•´í•˜ê¸° ìœ„í•´ ë…¼ë¬¸ì„ ê°€ìƒìœ¼ë¡œ ìž¬ ì‹¤í—˜í•´ë³´ëŠ” ê²ƒì´ë‹¤. ì´ ë‹¨ê³„ê°€ ì§€ë‚˜ì„œ, ê¸°ì–µì„ í†µí•´ ë…¼ë¬¸ì˜ êµ¬ì¡°ë¥¼ ë‹¤ì‹œ ìž‘ì„±í•´ë³¼ ìˆ˜ ìžˆë‹¤. ê±°ê¸°ì— ë”í•´ ê°•ì , ì•½ì ë„ ë¶„ë¥˜í•´ë‚¼ ìˆ˜ ìžˆì„ ê²ƒì´ë‹¤. íŠ¹ížˆ, ì‹¤í—˜ ë˜ëŠ” ë¶„ì„ ê¸°ìˆ ì—ì„œ ìž ìž¬ì  ê°€ì •ì´ë‚˜, ë¹ ì§„ ê´€ë ¨ ì—°êµ¬, ê·¸ë¦¬ê³  ìž ìž¬ì  ì´ìŠˆë“¤ì„ ì°¾ì•„ë‚¼ ìˆ˜ ìžˆì„ ê²ƒì´ë‹¤. 
 
-### ¹®Çå Á¶»ç ¹æ¹ý
-Google Scholar³ª CiteSeer°°Àº ÇÐ¹®¿ë °Ë»ö ¿£ÁøÀ» ¾²°í, ¾Ë¸ÂÀº Å°¿öµå¸¦ ½á¼­ ÃÖ±Ù¿¡ ¸¹ÀÌ ÀÎ¿ëµÈ 3-5°³ÀÇ ÇØ´ç ¿µ¿ªÀÇ ³í¹®À» Ã£ÀÚ.
-°¢ ¿¬±¸¿¡¼­ ³í¹® ÀÐ±â 1´Ü°è¸¦ Àû¿ëÇØ¼­, ÇØ´ç ¿¬±¸ÀÇ ¸Æ¶ôÀ» Àâ´Â´Ù. ±×·¯°í ³ª¼­ °ü·ÃµÈ ¿¬±¸ ºÎ¹®À» ÀÐ¾îº»´Ù.
+### ë¬¸í—Œ ì¡°ì‚¬ ë°©ë²•
+Google Scholarë‚˜ CiteSeerê°™ì€ í•™ë¬¸ìš© ê²€ìƒ‰ ì—”ì§„ì„ ì“°ê³ , ì•Œë§žì€ í‚¤ì›Œë“œë¥¼ ì¨ì„œ ìµœê·¼ì— ë§Žì´ ì¸ìš©ëœ 3-5ê°œì˜ í•´ë‹¹ ì˜ì—­ì˜ ë…¼ë¬¸ì„ ì°¾ìž.
+ê° ì—°êµ¬ì—ì„œ ë…¼ë¬¸ ì½ê¸° 1ë‹¨ê³„ë¥¼ ì ìš©í•´ì„œ, í•´ë‹¹ ì—°êµ¬ì˜ ë§¥ë½ì„ ìž¡ëŠ”ë‹¤. ê·¸ëŸ¬ê³  ë‚˜ì„œ ê´€ë ¨ëœ ì—°êµ¬ ë¶€ë¬¸ì„ ì½ì–´ë³¸ë‹¤.
 
