@@ -70,4 +70,7 @@
 출처 : <https://victorydntmd.tistory.com/72>
 
 #### Git 사용법
-https://rogerdudler.github.io/git-guide/index.ko.html
+출처 : https://rogerdudler.github.io/git-guide/index.ko.html
+
+### Git 블로그 사용법
+출처 : https://www.theteams.kr/teams/2440/post/67297
